@@ -1,0 +1,57 @@
+{% extends 'search/index.html.twig' %}
+
+{% block title %}Artist - !{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href={{asset("asset/css/artistStyle.css")}} type="text/css">
+{% endblock %}
+
+{% block nav %}
+    {{parent()}}
+{% endblock %}
+
+{% block content_m %}
+    <div class="artist_con">
+        {% if artist != null %}
+            <img src={{artist.getMusics()[0].getRepImage()}} alt="profile image">
+            <h3> {{artist.getName()}} </h3>
+            {% set music_count = artist.getMusics() | length %}
+            {% set user_count = artist.getUsers() | length %}
+            <div class="stat">
+                <div class="el">
+                    <h5>Musics</h5>
+                    <h1>{{music_count}}</h1>
+                </div>
+                <div class="el">
+                    <h5>Followers</h5>
+                    <h1>{{user_count}}</h1>
+                </div>
+                <div class="el">
+                    <h5>Likes</h5>
+                    <h1>{{like}}</h1>
+                </div>
+            </div>
+            <div class="action">
+                {% if isPref %}
+                    <a href={{ path('app_artist_action', {id : artist.id, action : "remove"}) }}>
+                        <button>
+                            Remove from Preferences
+                        </button>
+                    </a>
+                {% else %}
+                    <a href={{ path('app_artist_action', {id : artist.id, action : "add"}) }}>
+                        <button>
+                            Add into Preferences
+                        </button>
+                    </a>
+                {% endif %}
+            </div>
+        {% else %}
+            <h3>No artist found</h3>
+        {% endif %}
+    </div>
+{% endblock %}
+
+

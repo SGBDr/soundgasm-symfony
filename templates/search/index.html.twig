@@ -1,0 +1,123 @@
+{% extends 'home/index.html.twig' %}
+
+{% block title %}Search{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href={{asset("asset/css/searchStyle.css")}} type="text/css">
+{% endblock %}
+
+{% block nav %}
+    {{parent()}}
+{% endblock %}
+
+{% block content_m %}
+    <div class="search">
+        <div class="up-bar">
+            <form>
+                <input name="term" id="term" autocomplete="true" value="{{term}}" placeholder="What do you want to listen to ?">
+                <input type="submit" style="display: none;">
+            </form>
+        </div>
+
+        <div class="result">
+            {% if term != "" %}
+                {% set size = result | length %}
+                {% if size != 0 %}
+                    <div class="content-r">
+                        <div>
+                            <div  class="top-result">
+                                <h2>Top Result</h2>
+                                <img src={{result[0].getRepImage()}} alt="">
+                                <div class="down-line">
+                                    <div class="dd">
+                                        <h2>{{result[0].getName()}}</h2>
+                                        <small> <small class="art-d">E</small> &nbsp;<a href={{ path('app_artist', {id : result[0].getArtist().getId()}) }}>{{result[0].getArtist().getName() | upper}}</a>  &nbsp; &nbsp;<strong>Song</strong></small>
+                                    </div>
+                                    <a href={{ path('app_reader', {id : result[0].getId()}) }}>
+                                        <div class="lect">
+                                            <svg viewBox="0 0 48 48" width="32" height="32" version="1" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 48 48" fill="#000000">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier"> 
+                                                    <path fill="#F44336" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"></path> 
+                                                    <polygon fill="#ffffff" points="31,24 20,16 20,32"></polygon> 
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list">
+                            {% for song in result %}
+                                <div class="song-item-list">
+                                    <div class="b1">
+                                        <img src={{song.getRepImage()}} alt="">
+                                        <div>
+                                            <h4>{{song.getName()}}</h4>
+                                            <h6><a href={{ path('app_artist', {id : song.getArtist().getId()}) }}>{{song.getArtist().getName() | upper}}</a></h6>
+                                        </div>
+                                        <a href={{ path('app_reader', {id : song.getArtist().getId()}) }}>
+                                            <div class="lect1">
+                                                <svg viewBox="0 0 48 48" width="15" height="15" version="1" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 48 48" fill="#000000">
+                                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                    <g id="SVGRepo_iconCarrier"> 
+                                                        <path fill="#F44336" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"></path> 
+                                                        <polygon fill="#ffffff" points="31,24 20,16 20,32"></polygon> 
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="ss">
+                                        <small>{{song.getStyle() | upper}}</small>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+                {% if size == 0 %}
+                    <div>
+                        No result found !
+                    </div>
+                {% endif %}
+            {% else %}
+                <h2>Recent Add</h2>
+                <div class="list2">
+                    {% for song in result_recent %}
+                        <div class="song-item-list">
+                            <div class="b1">
+                                <img src={{song.getRepImage()}} alt="">
+                                <div>
+                                    <h4>{{song.getName()}}</h4>
+                                    <h6><a href={{ path('app_artist', {id : song.getArtist().getId()}) }}>{{song.getArtist().getName() | upper}}</a></h6>
+                                </div>
+                                <a href={{ path('app_reader', {id : song.getArtist().getId()}) }}>
+                                    <div class="lect1">
+                                        <svg viewBox="0 0 48 48" width="15" height="15" version="1" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 48 48" fill="#000000">
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                            <g id="SVGRepo_iconCarrier"> 
+                                                <path fill="#F44336" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"></path> 
+                                                <polygon fill="#ffffff" points="31,24 20,16 20,32"></polygon> 
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="ss">
+                                <small>{{song.getStyle() | upper}}</small>
+                            </div>
+                        </div>
+                    {% else %}
+                        <h1>No Recent Add !</h1>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

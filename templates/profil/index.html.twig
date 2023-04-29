@@ -1,0 +1,48 @@
+{% extends 'search/index.html.twig' %}
+
+{% block title %} Profil {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href={{asset("asset/css/loginStyle.css")}} type="text/css">
+{% endblock %}
+
+{% block nav %}
+    {{parent()}}
+{% endblock %}
+
+{% block content_m %}
+    <div class="con">
+        <h2>Profile</h2>
+        <div class="list1">
+            {{ form_start(registrationForm) }}
+                <div class="form-control">
+                    {{ form_row(registrationForm.name) }}
+                </div>
+                <div class="form-control">
+                    {{ form_row(registrationForm.email) }}
+                </div>
+                <div class="form-control">
+                    {{ form_row(registrationForm.password.first, {
+                        label: 'Password'
+                    }) }}
+                    <br>
+                    {{ form_row(registrationForm.password.second, {
+                        label: 'Confirm password'
+                    }) }}
+                </div>
+                {% if error %}
+                    <div class="alert2">
+                        <small>Password must contain:<br>-At least 1 number <br>-At least one Majuscule and Minuscule <br>-At least 1 special char</small>
+                    </div>
+                {% endif %}
+                <div class="form-control">
+                <small>leave as you see, if you don't want to change it</small>
+                    <button type="submit" class="btn">Save</button>
+                </div>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+{% endblock %}
+

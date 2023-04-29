@@ -1,0 +1,116 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block stylesheets %}
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href={{asset("asset/css/homeStyle.css")}} type="text/css">
+{% endblock %}
+
+{% block body %}
+    <div class="div1">
+        <main>
+            {% block nav %}
+                <section class="section1">
+                    <div class="logo">
+                        SoundGasm
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-boombox-fill" viewBox="0 0 16 16">
+                            <path d="M14 0a.5.5 0 0 1 .5.5V2h.5a1 1 0 0 1 1 1v2H0V3a1 1 0 0 1 1-1h12.5V.5A.5.5 0 0 1 14 0ZM2 3.5a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0Zm2 0a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0Zm7.5.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm1.5-.5a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0ZM9.5 3h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1ZM6 10.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm-1.5.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm7 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm.5-1.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+                            <path d="M0 6h16v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V6Zm2 4.5a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0Zm7 0a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0Z"/>
+                        </svg>
+                    </div>
+                    <h1> Hello {{name}} </h1>
+                    <div class="nav">
+                        <a href="{{ path('app_home', {page : 1}) }}" class="nav-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+                                <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"/>
+                            </svg>
+                            &nbsp;&nbsp;Home
+                        </a>
+                        <a href="{{ path('app_search') }}" class="nav-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg>
+                            &nbsp;&nbsp;Search
+                        </a>
+                        <a href="{{ path('app_like_song') }}" class="nav-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-through-heart-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M2.854 15.854A.5.5 0 0 1 2 15.5V14H.5a.5.5 0 0 1-.354-.854l1.5-1.5A.5.5 0 0 1 2 11.5h1.793l3.103-3.104a.5.5 0 1 1 .708.708L4.5 12.207V14a.5.5 0 0 1-.146.354l-1.5 1.5ZM16 3.5a.5.5 0 0 1-.854.354L14 2.707l-1.006 1.006c.236.248.44.531.6.845.562 1.096.585 2.517-.213 4.092-.793 1.563-2.395 3.288-5.105 5.08L8 13.912l-.276-.182A23.825 23.825 0 0 1 5.8 12.323L8.31 9.81a1.5 1.5 0 0 0-2.122-2.122L3.657 10.22a8.827 8.827 0 0 1-1.039-1.57c-.798-1.576-.775-2.997-.213-4.093C3.426 2.565 6.18 1.809 8 3.233c1.25-.98 2.944-.928 4.212-.152L13.292 2 12.147.854A.5.5 0 0 1 12.5 0h3a.5.5 0 0 1 .5.5v3Z"/>
+                            </svg>
+                            &nbsp;&nbsp;Liked Song
+                        </a>
+                        <a href="{{ path('app_profil') }}" class="nav-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-square" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z"/>
+                            </svg>
+                            &nbsp;&nbsp;Profile
+                        </a>
+                        <a href="{{ path('app_logout') }}" class="nav-item" style="color:red">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-door-closed-fill" viewBox="0 0 16 16">
+                            <path d="M12 1a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2a1 1 0 0 1 1-1h8zm-2 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                            </svg>
+                            &nbsp;&nbsp;Disconnect
+                        </a>
+                    </div>
+                </section>
+            {% endblock %}
+            <section class="section2">
+                {% block content_m %}
+                    <div class="cen">
+                        <h1>Preferences</h1>
+                        {% for song in page_songs %}
+                            <div class="song-item-list">
+                                <div class="b1">
+                                    <img src={{song.getRepImage()}} alt="">
+                                    <div>
+                                        <h4>{{song.getName()}}</h4>
+                                        <h6><a href={{ path('app_artist', {id : song.getArtist().getId()}) }}>{{song.getArtist().getName() | upper}}</a></h6>
+                                    </div>
+                                    <a href={{ path('app_reader', {id : song.getArtist().getId()}) }}>
+                                        <div class="lect1">
+                                            <svg viewBox="0 0 48 48" width="15" height="15" version="1" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 48 48" fill="#000000">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier"> 
+                                                    <path fill="#F44336" d="M38,42H10c-2.2,0-4-1.8-4-4V10c0-2.2,1.8-4,4-4h28c2.2,0,4,1.8,4,4v28C42,40.2,40.2,42,38,42z"></path> 
+                                                    <polygon fill="#ffffff" points="31,24 20,16 20,32"></polygon> 
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="ss">
+                                    <small>{{song.getStyle() | upper}}</small>
+                                </div>
+                            </div>
+                        {% else %}
+                            <h1>No Song</h1>
+                        {% endfor %}
+                        <div class="paginations">
+                            {% if pages > 0  %}
+                                <a class="po_active" href={{ path('app_home_action', {page : page, action : "previous"}) }}>
+                                    <small> << </small>
+                                </a>
+                                {% for i in 1..pages %}
+                                    {% if i == page %}
+                                        <a class="po_active" href={{ path('app_home', {page : i}) }}>
+                                            <small> {{ i }} </small>
+                                        </a>
+                                    {% else %}
+                                        <a class="po" href={{ path('app_home', {page : i}) }}>
+                                            <small> {{ i }} </small>
+                                        </a>
+                                    {% endif %}
+                                {% endfor %}
+                                <a class="po_active" href={{ path('app_home_action', {page : page, action : "next"}) }}>
+                                    <small> >> </small>
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endblock %}
+            </section>
+        <main>
+    <div>
+{% endblock %}

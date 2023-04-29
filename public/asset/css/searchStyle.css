@@ -1,0 +1,161 @@
+.search{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    font-family: "Rajdhani", sans-serif;
+}
+
+.up-bar{
+    padding-left: 10px;
+}
+
+#term{
+    width: 400px;
+    height: 40px;
+    border-radius: 40px;
+    border: none;
+    background-color: white;
+    transition-delay: 9000000000000000000000000000s;
+    padding-left: 50px;
+    color: rgb(63, 63, 63);
+    font-weight: bold;
+}
+
+.result{
+    color: white;
+    padding: 20px;
+}
+
+.content-r{
+    display: flex;
+    padding: 10px;
+}
+
+.top-result{
+    background-color: rgb(181, 181, 181);
+    min-width: 400px;
+    padding: 5px 20px 20px 20px;
+
+}
+
+.top-result img{
+    width: 200px;
+    height: auto;
+    box-shadow: whitesmoke 0px 8px 24px;
+}
+
+.art-d{
+    padding: 3px;
+    background-color: whitesmoke;
+    border: none;
+    color: black;
+    font-weight: bold;
+    border-radius: 3px;
+    font-size: large;
+}
+
+.down-line strong{
+    font-size: large;
+}
+
+.down-line{
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.down-line .dd{
+    width: 85%;
+}
+
+.lect{
+    width: 40px;
+    height: 40px;
+    background-color: greenyellow;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.lect1{
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lect1:hover{
+    transform: scale(1.1);
+}
+
+.lect:hover{
+    transform: scale(1.1);
+}
+
+.list{
+    width: 100%;
+    padding: 20px;
+    margin-left: 10px;
+    height: 500px;
+    overflow-y: auto;
+}
+
+.list2{
+    width: 100%;
+    padding: 10px;
+    margin-left: 10px;
+    height: 500px;
+    overflow-y: auto; 
+}
+
+.con{
+    padding: 20px;
+}
+
+.con h2{
+    color: white;
+}
+
+.list::-webkit-scrollbar {
+    display: none;
+}
+.list1::-webkit-scrollbar {
+    display: none;
+}
+.list2::-webkit-scrollbar {
+    display: none;
+}
+.song-item-list{
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    padding: 1px 5px 1px 5px;
+    margin-bottom: 3px;
+}
+.song-item-list:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
+}
+.song-item-list .b1{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.b1 img{
+    width: 60px;
+    height: 60px;
+    margin-right: 3px;
+}
+.song-item-list .ss{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    margin-right: 5px;
+    text-align: right;
+    
+}
+
+a{
+    text-decoration: none;
+}

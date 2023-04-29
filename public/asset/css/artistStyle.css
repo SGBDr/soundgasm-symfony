@@ -1,0 +1,32 @@
+.artist_con{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.artist_con img{
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    border: 5px solid blue;
+}
+.stat{
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 5px;
+}
+.stat .el{
+    text-align: center;
+    margin: 3px;
+}
+.action{
+    margin: 20px;
+}
+.action input{
+    padding: 5px;
+    font-weight: bold;
+    background-color: blueviolet;
+}

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block stylesheets %}
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href={{asset("asset/css/loginStyle.css")}} type="text/css">
+{% endblock %}
+
+
+{% block body %}
+    <img src="asset/images/hero-bg.png"/>
+    <div class="container">
+        <div class="form">
+            <h1 class="text-center">Register</h1>
+            {{ form_start(registrationForm) }}
+                <div class="form-control">
+                    {{ form_row(registrationForm.name) }}
+                </div>
+                <div class="form-control">
+                    {{ form_row(registrationForm.email) }}
+                </div>
+                <div class="form-control">
+                    {{ form_row(registrationForm.password.first, {
+                        label: 'Password'
+                    }) }}
+                    {{ form_row(registrationForm.password.second, {
+                        label: 'Confirm password'
+                    }) }}
+                    <small><a href="{{ path('app_register') }}">Data proccessing and confidentiality rules</a></small>
+                    {{ form_row(registrationForm.agreeTerms) }}
+                </div>
+                {% if error %}
+                    <div class="alert2">
+                        <small>Password must contain:<br>-At least 1 number <br>-At least one Majuscule and Minuscule <br>-At least 1 special char</small>
+                    </div>
+                {% endif %}
+                <div class="form-control">
+                    <button type="submit" class="btn">Register</button>
+                    <br>
+                    <small>Already a member ? <a href="{{ path('app_login') }}">Sign in here!</a></small>
+                </div>
+            
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+{% endblock %}
